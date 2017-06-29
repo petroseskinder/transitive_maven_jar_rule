@@ -1,0 +1,15 @@
+workspace(name = "test")
+
+local_repository(name = "transitive_maven_jar_rule",
+				path = "../")
+
+load(
+	"@transitive_maven_jar_rule//:transitive_maven_jar_rule.bzl",
+	"transitive_maven_jar"
+)
+
+transitive_maven_jar(
+	name = "junit",
+	artifact = "junit:junit:4.12",
+)
+
